@@ -9,8 +9,8 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
 import EnhancedTableHead from "../../../shared/tables/TableHeader";
-import { Avatar } from "@material-ui/core";
-import moment from "moment";
+//import { Avatar } from "@material-ui/core";
+//import moment from "moment";
 import { Link } from "react-router-dom";
 
 function descendingComparator(a, b, orderBy) {

@@ -13,7 +13,7 @@ function GuadianMessage() {
   const sender = useSelector(selectUser);
   const [studentsList, setstudentsList] = useState([]);
   const [search, setsearch] = useState("");
-  const [sendto, setsendto] = useState("Guadian");
+  // const [sendto, setsendto] = useState("Guadian");
 
   const autocompleteSearch = () => {
     if (search) {
@@ -135,7 +135,7 @@ function GuadianMessage() {
           recipient={recipient}
           setrecipient={setrecipient}
           sender={sender?.id}
-          sendto={sendto}
+          sendto="Guadian"
         />
       )}
     </div>

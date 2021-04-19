@@ -5,17 +5,10 @@ import {
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
-  CImg,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import {
-  getImgSrc,
-  timeStamp,
-  getTrimString,
-  getCapitalize,
-  getIntial,
-} from "../utils";
-import axios from "../store/axios";
+import { timeStamp, getTrimString, getCapitalize } from "../utils";
+
 import { selectUser } from "../store/slices/userSlice";
 import { useSelector } from "react-redux";
 import { Avatar } from "@material-ui/core";
@@ -25,13 +18,7 @@ const TheHeaderDropdownMssg = () => {
   const [messages, setmessages] = useState([]);
 
   useEffect(() => {
-    // axios.get(`chats/messages/${user?.id}`).then(res => {
-    //   let data = res.data
-    //     data.slice(0,5).sort(function(x, y){
-    //          return y.date - x.date;
-    //     })
-    //     setmessages(data)
-    // })
+    setmessages([]);
   }, [user]);
 
   const itemsCount = messages?.length;

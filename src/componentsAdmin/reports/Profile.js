@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ProfileInfo from "./ProfileInfo";
 import ProfileTabs from "./ProfileTabs";
 import axios from "../../store/axios";
 import { useSelector } from "react-redux";

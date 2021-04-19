@@ -5,15 +5,6 @@ import axios from "../../../store/axios";
 import Loading from "../../../Loading";
 import Card from "../../../shared/academics/ClassCard";
 
-const tableHeader = [
-  { id: "userID", name: "Student ID" },
-  { id: "profileUrl", name: "Profile" },
-  { id: "name", name: "Name" },
-  { id: "middleName", name: "Middle Name" },
-  { id: "surname", name: "Surname" },
-  { id: "gender", name: "Gender" },
-];
-
 function Class() {
   const [classes, setclasses] = useState([]);
   const user = useSelector(selectUser);

@@ -3,7 +3,7 @@ import Search from "./Search";
 import Table from "../../../shared/timetable/Timeble";
 import axios from "../../../store/axios";
 import SetForm from "./SetForm";
-import { errorAlert, successAlert } from "../../../utils";
+import { errorAlert } from "../../../utils";
 
 function Timetable() {
   const [classes, setclasses] = useState([]);

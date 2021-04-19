@@ -8,15 +8,11 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import axios from "../../../store/axios";
 import { errorAlert, successAlert } from "../../../utils";
-import { update } from "../../../store/slices/userSlice";
-import { useDispatch } from "react-redux";
 import GuadianCard from "../../../shared/newStudent/GuadianCard";
 import moment from "moment";
 
 function EditStudent() {
   const { id } = useParams();
-  const dispatch = useDispatch();
-
   const [studentDetails, setstudentDetails] = useState({});
 
   //personal
@@ -130,14 +126,7 @@ function EditStudent() {
     console.log(profileUrl);
     if (profileUrl) {
       path = await axios.post("/upload", fileData, {});
-      // dispatch(
-      //   update({
-      //     photoUrl: path?.data?.path,
-      //   })
-      // );
     }
-
-    console.log(path);
     axios
       .put(`/students/update/${id}`, {
         profileUrl: path?.data?.path || "",
@@ -179,13 +168,11 @@ function EditStudent() {
       })
       .catch((err) => {
         setloading(false);
-        console.log(err);
         errorAlert("something went wrong");
       });
   };
 
   const handleChangeFile = (e) => {
-    console.log(e);
     const selected = e.target.files[0];
     if (selected?.size > 2000000) {
       errorAlert("image is too large");
@@ -210,7 +197,6 @@ function EditStudent() {
     } else {
       setcourses([{ courseID: e.target.value, courses }, ...courses]);
     }
-    console.log(courses);
   };
 
   const handleDeleteGuadian = (ID) => {

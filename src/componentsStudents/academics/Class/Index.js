@@ -6,7 +6,6 @@ import ClassInfo from "../../../shared/classes/Class";
 
 function Index() {
   const user = useSelector(selectUser);
-  const [classDetails, setclassDetails] = useState({});
   const [classID, setclassID] = useState("");
 
   useEffect(() => {
@@ -14,10 +13,6 @@ function Index() {
       let studentData = await axios.get(`/students/${user?.userID}`);
       let classID = studentData.data.user?.classID;
       setclassID(classID);
-      // await axios.get(`/classes/classCode/${classID}`).then((res) => {
-      //   console.log(res.data);
-      //   setclassDetails(res.data.docs);
-      // });
     };
     getData();
   }, [user]);

@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Pagination from "../../tables/TablePagination";
 import { timeStamp, getTrimString } from "../../../utils";
 
 function TasksTable({ data, handleView, handleDelete, user }) {
-  const [page, setpage] = useState(0);
-
   const onChangePage = () => {};
   return (
     <div>
@@ -57,7 +55,7 @@ function TasksTable({ data, handleView, handleDelete, user }) {
       {data.length > 5 && (
         <Pagination
           count={5}
-          page={page}
+          page={0}
           rowsPerPage={5}
           onChangePage={onChangePage}
         />

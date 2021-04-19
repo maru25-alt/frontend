@@ -6,10 +6,7 @@ import EditClass from "./EditClass";
 import Search from "../../../shared/components/Search";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {
-  selectacademicYearsGroup,
-  selectacademicYear,
-} from "../../../store/slices/schoolSlice";
+import { selectacademicYearsGroup } from "../../../store/slices/schoolSlice";
 
 const tableHeader = [
   { id: "name", name: "Class Name" },
@@ -22,7 +19,6 @@ const tableHeader = [
 function ClassesPage() {
   const [data, setdata] = useState([]);
   const [openEdit, setopenEdit] = useState(false);
-  const [loading, setloading] = useState(false);
   const [classname, setclassname] = useState("");
   const [classCode, setclassCode] = useState("");
   const [teacher, setteacher] = useState("");
@@ -32,7 +28,7 @@ function ClassesPage() {
   const [editLoading, seteditLoading] = useState(false);
   const [academic, setacademic] = useState("");
   const [query, setquery] = useState("");
-  const [storeData, setstoreData] = useState([]);
+  //const [storeData, setstoreData] = useState([]);
   const [queryteacher, setqueryteacher] = useState("");
   const [queryacademicYear, setqueryacademicYear] = useState("");
   const years = useSelector(selectacademicYearsGroup);
@@ -66,12 +62,10 @@ function ClassesPage() {
   ];
 
   useEffect(() => {
-    setloading(true);
     axios.get("/classes").then((res) => {
-      setloading(false);
       setdata(res.data);
       console.log(res.data);
-      setstoreData(res.data);
+      // setstoreData(res.data);
     });
   }, []);
 
@@ -130,25 +124,11 @@ function ClassesPage() {
     setquery("");
     setqueryteacher("");
     setqueryacademicYear("");
-    setdata(setstoreData);
+    // setdata(setstoreData);
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // let newStaff = [];
-    // if (name) {
-    //   newStaff = storeData.filter(
-    //     (i) =>
-    //       i.name.toLowerCase().includes(name.toLowerCase()) ||
-    //       i.surname.toLowerCase().includes(name.toLowerCase())
-    //   );
-    // }
-    // if (userID) {
-    //   newStaff = storeData.filter((i) =>
-    //     i.userID.toLowerCase().includes(userID.toLowerCase())
-    //   );
-    // }
-    // setrows(newStaff);
   };
 
   return (

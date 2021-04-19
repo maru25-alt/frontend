@@ -29,7 +29,6 @@ function BillPayment() {
   const [transactions, settransactions] = useState([]);
   const [loadingStudents, setloadingStudents] = useState(false);
   const [user, setuser] = useState({});
-  const [feetype, setfeetype] = useState({});
   const [balance, setbalance] = useState(0);
   const [totalBill, settotalBill] = useState(0);
   const [totalPaid, settotalPaid] = useState(0);
@@ -194,7 +193,6 @@ function BillPayment() {
               transactions={transactions}
               user={user}
               balance={balance}
-              feetype={feetype}
               fees={fees}
               totalBill={totalBill}
               total={totalPaid}

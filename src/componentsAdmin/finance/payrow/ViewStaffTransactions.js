@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import ListTable from "../../../shared/tables/Table";
-import NumberFormat from "react-number-format";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,9 +39,6 @@ export default function ViewStudentPayment({
   setOpen,
   transactions,
   name,
-  totalBill,
-  totalPaid,
-  balance,
   id,
 }) {
   const classes = useStyles();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../store/axios";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import moment from "moment";
 import { monthYear } from "../../../data";
 

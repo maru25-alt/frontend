@@ -1,32 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "../../store/axios";
+import React, { useEffect } from "react";
+
 import { selectFees } from "../../store/slices/schoolSlice";
 import { useSelector } from "react-redux";
 
 function AcademicTab({ user }) {
-  const [section, setsection] = useState("");
-  const [fees, setfees] = useState("");
-  const [scholarship, setscholarship] = useState("");
   const feesSelector = useSelector(selectFees);
 
-  useEffect(() => {
-    if (user?.fees) {
-      let type = feesSelector.find((e) => e.code === user?.fees);
-      setfees(type?.name);
-    }
-
-    if (user?.scholarship) {
-      axios.get(`/scholarships/${user?.scholarship}`).then((res) => {
-        setscholarship(res.data?.doc?.name);
-      });
-    }
-
-    if (user?.section) {
-      axios.get(`/sections/${user?.section}`).then((res) => {
-        setsection(res.data.doc?.name);
-      });
-    }
-  }, [user, feesSelector]);
+  useEffect(() => {}, [user, feesSelector]);
 
   return (
     <div className="tab__container">

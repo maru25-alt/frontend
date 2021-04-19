@@ -2,16 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "../../../store/axios";
 import { schoolDepart } from "../../../data";
-import {
-  selectClasses,
-  selectCourses,
-  selectCampuses,
-} from "../../../store/slices/schoolSlice";
+import { selectCourses } from "../../../store/slices/schoolSlice";
 
 function EmploymentDetails(props) {
-  const classes = useSelector(selectClasses);
   const courses = useSelector(selectCourses);
-  const campuses = useSelector(selectCampuses);
   const [positions, setpositions] = useState([]);
   const [showCheck, setshowCheck] = useState(false);
 
@@ -29,16 +23,12 @@ function EmploymentDetails(props) {
     setDepartment,
     qualification,
     setqualification,
-    years,
-    setyears,
     bank,
     setbank,
     accountNumber,
     setaccountNumber,
     register,
     errors,
-    classID,
-    setclass,
     handleCoursesCheckbox,
   } = props;
 

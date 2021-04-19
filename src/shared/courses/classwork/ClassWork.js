@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "../../../store/axios";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../store/slices/userSlice";
 import StudentWork from "./StudentClassWork";

@@ -46,13 +46,8 @@ const ClassesAttendance = React.lazy(() =>
   import("../../componentsTeachers/academics/class/ClassAttendance")
 );
 
-// const Courses = React.lazy(() =>
-//   import("../../componentsTeachers/academics/courses/Courses.js")
-// );
 const Courses = React.lazy(() => import("../../shared/courses/Classes"));
-const CourseDetails = React.lazy(() =>
-  import("../../componentsTeachers/academics/courses/CourseDetails")
-);
+
 const AddCourseNotes = React.lazy(() =>
   import("../../componentsTeachers/academics/courses/AddCourseNote")
 );

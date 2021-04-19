@@ -9,7 +9,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
 import EnhancedTableHead from "./TableHeader";
-import { Avatar } from "@material-ui/core";
 import moment from "moment";
 
 function descendingComparator(a, b, orderBy) {
@@ -62,15 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable({
-  rows,
-  headCells,
-  handleDelete,
-  routes,
-  handleWithdraw,
-  handleDeleteAll,
-  isStudents,
-}) {
+export default function EnhancedTable({ rows, headCells }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -94,6 +85,7 @@ export default function EnhancedTable({
   };
 
   const handleClick = (event, name) => {
+    console.log(event);
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 

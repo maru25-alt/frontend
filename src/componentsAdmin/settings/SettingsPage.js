@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Setting from "../../shared/settings/Settings";
 import { useSelector, useDispatch } from "react-redux";
-import { selectUser, logout, update } from "../../store/slices/userSlice";
+import { selectUser, update } from "../../store/slices/userSlice";
 import { useForm } from "react-hook-form";
 import Profile from "../../shared/users/UpdateProfile";
 import axios from "../../store/axios";
@@ -20,8 +20,6 @@ function SettingsPage() {
   const [address, setaddress] = useState("");
   const [telephone, settelephone] = useState("");
   const [loading, setloading] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [editloading, seteditloading] = useState(false);
 
   useEffect(() => {
     axios.get(`/school/user/${user?.id}`).then((res) => {

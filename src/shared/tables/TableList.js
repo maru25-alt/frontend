@@ -82,6 +82,7 @@ export default function EnhancedTable({
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
+    console.log(event);
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
@@ -116,6 +117,7 @@ export default function EnhancedTable({
   };
 
   const handleChangePage = (event, newPage) => {
+    console.log(event);
     setPage(newPage);
   };
 
@@ -167,7 +169,6 @@ export default function EnhancedTable({
                 .map((row, index) => {
                   const isItemSelected = isSelected(row?.userID);
                   const labelId = `enhanced-table-checkbox-${index}`;
-                  const selectedAll = selected.find((i) => i === row?.userID);
 
                   return (
                     <TableRow

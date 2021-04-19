@@ -5,7 +5,6 @@ import { monthYear } from "../../../data";
 
 function PaymentForm({
   month,
-  setmonth,
   amount,
   setamount,
   remarks,
@@ -15,8 +14,6 @@ function PaymentForm({
   balance,
   date,
   setdate,
-  paymentType,
-  setpaymentType,
 }) {
   const { register, handleSubmit, errors } = useForm();
 

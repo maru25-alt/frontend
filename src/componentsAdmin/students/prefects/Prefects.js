@@ -23,10 +23,10 @@ function Prefects() {
   const [name, setname] = useState("");
   const [classesArr, setclassesArr] = useState([]);
   const [loading, setloading] = useState(false);
-  const [seteditloading, setseteditloading] = useState(false);
-  const [editedname, seteditedname] = useState("");
-  const [editposition, seteditposition] = useState("");
-  const [editID, seteditID] = useState("");
+  // const [editloading, seteditloading] = useState(false);
+  // const [editedname, seteditedname] = useState("");
+  // const [editposition, seteditposition] = useState("");
+  // const [editID, seteditID] = useState("");
 
   useEffect(() => {
     axios.get("/prefects").then((res) => {
@@ -54,7 +54,6 @@ function Prefects() {
     axios.get(`/students/class/${e}`).then((res) => {
       console.log(res.data);
       if (res.data.error) {
-        //console.log("error");
         errorAlert(res.data.error);
         return 0;
       }
@@ -106,39 +105,39 @@ function Prefects() {
       });
   };
 
-  const onEdit = () => {
-    seteditloading(true);
-    axios
-      .put(`/prefects/update/${editID}`, {
-        posistion: editposition,
-      })
-      .then(async (res) => {
-        seteditloading(false);
-        if (res.data.error) {
-          errorAlert(res.data.error);
-          return 0;
-        }
-        successAlert(" Prefect successfully edited");
-        setOpenEdit(false);
-        seteditposition("");
+  // const onEdit = () => {
+  //   seteditloading(true);
+  //   axios
+  //     .put(`/prefects/update/${editID}`, {
+  //       posistion: editposition,
+  //     })
+  //     .then(async (res) => {
+  //       seteditloading(false);
+  //       if (res.data.error) {
+  //         errorAlert(res.data.error);
+  //         return 0;
+  //       }
+  //       successAlert(" Prefect successfully edited");
+  //       setOpenEdit(false);
+  //       seteditposition("");
 
-        let filteredData = data.filter((e) => e._id !== editID);
-        setdata([res.data.doc, ...filteredData]);
-        await axios.post("/activities/create", {
-          activity: `prefect's position  ${editedname}  was edited`,
-          user: "admin",
-        });
-        await axios.post("/notifications/create", {
-          message: `Your position is changed to ${position}`,
-          userID: editID,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        seteditloading(false);
-        errorAlert("Failed to edit");
-      });
-  };
+  //       let filteredData = data.filter((e) => e._id !== editID);
+  //       setdata([res.data.doc, ...filteredData]);
+  //       await axios.post("/activities/create", {
+  //         activity: `prefect's position  ${editedname}  was edited`,
+  //         user: "admin",
+  //       });
+  //       await axios.post("/notifications/create", {
+  //         message: `Your position is changed to ${position}`,
+  //         userID: editID,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       seteditloading(false);
+  //       errorAlert("Failed to edit");
+  //     });
+  // };
 
   const handleDelete = (id) => {
     axios

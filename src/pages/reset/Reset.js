@@ -16,8 +16,6 @@ import CIcon from "@coreui/icons-react";
 import axios from "../../store/axios";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { loggin } from "../../store/slices/userSlice";
-import { LoginString } from "../../store/localStorage";
 import { errorAlert } from "../../utils";
 import { useParams, Link } from "react-router-dom";
 import { handleLogin } from "../../store/apiCall";

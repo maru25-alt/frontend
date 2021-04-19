@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../../store/slices/userSlice";
 import axios from "../../../store/axios";
 import Loading from "../../../Loading";
 import TableList from "../../../shared/tables/TableList";
@@ -18,7 +16,6 @@ const tableHeader = [
 
 function Class() {
   const [classDetails, setclassDetails] = useState(null);
-  const user = useSelector(selectUser);
   const [students, setstudents] = useState([]);
   const [loading, setloading] = useState(false);
   const [open, setopen] = useState(false);
@@ -26,6 +23,7 @@ function Class() {
 
   useEffect(() => {
     const getData = async () => {
+      setloading(true);
       let classData = await axios.get(`/classes/classCode/${id}`);
       setclassDetails(classData.data.docs);
       let studentsData = await axios.get(
@@ -36,6 +34,7 @@ function Class() {
       } else {
         setstudents(studentsData.data.docs);
       }
+      setloading(false);
     };
     getData();
   }, [id]);
